@@ -6,7 +6,7 @@ https://www.youtube.com/watch?v=MeU5_k9ssrs
 
 kubectl create namespace argocd
 
-kubectl config set-context --current --namespace=argocd
+kubectl config set-context --current --namespace=ves-system
 
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
