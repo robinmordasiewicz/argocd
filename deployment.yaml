@@ -15,10 +15,10 @@ spec:
       containers:
         - name: nginx
 <<<<<<< HEAD:deployment.yaml
-          image: robinhoodis/nginx:0.5.9
+          image: robinhoodis/nginx:0.6.0
 =======
-          image: robinhoodis/nginx-cnf:0.5.9
->>>>>>> 7440dcf0.5.9fcab0fa2f085ac35897a3753e473:nginx-deployment.yaml
+          image: robinhoodis/nginx-cnf:0.6.0
+>>>>>>> 7440dcf0.6.0fcab0fa2f085ac35897a3753e473:nginx-deployment.yaml
           ports:
             - name: http
               containerPort: 80
