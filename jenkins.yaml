@@ -8,6 +8,7 @@ spec:
   source:
     chart: jenkinsci/jenkins
     repoURL: https://charts.jenkins.io
+    path: jenkins
     targetRevision: latest
     helm:
       releaseName: jenkinsci
