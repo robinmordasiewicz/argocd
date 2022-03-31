@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkins-chart
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: jenkinsci/jenkins
+    repoURL: https://charts.jenkins.io
+    targetRevision: 3.11.8
+    helm:
+      releaseName: jenkins
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argocd
+

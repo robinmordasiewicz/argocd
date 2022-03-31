@@ -1,0 +1,5 @@
+spec:
+  source:
+    chart: jenkinsci/jenkins
+    targetRevision: 3.11.8
+    repoURL: https://charts.jenkins.io
