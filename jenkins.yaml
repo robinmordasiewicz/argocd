@@ -9,13 +9,12 @@ spec:
     chart: jenkins
     repoURL: 'https://github.com/robinmordasiewicz/argocd'
     path: jenkins/
-    targetRevision: HEAD
+    targetRevision: v0.0.1
     helm:
       valueFiles:
       - values.yaml
   destination:
     name: in-cluster
-    server: "https://kubernetes.default.svc"
     namespace: jenkins
   syncPolicy:
     automated:
@@ -24,4 +23,3 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
-
