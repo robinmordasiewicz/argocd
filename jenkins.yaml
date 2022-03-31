@@ -8,8 +8,7 @@ spec:
   source:
     chart: jenkins
     repoURL: 'https://github.com/robinmordasiewicz/argocd.git'
-    path: jenkins/
-    targetRevision: v0.0.1
+    targetRevision: 3.11.8
     helm:
       valueFiles:
       - values.yaml
