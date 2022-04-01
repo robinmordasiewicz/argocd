@@ -4,6 +4,7 @@ metadata:
   name: nginx
   namespace: argocd
   finalizers:
+  - "application-finalizer.appsource.argoproj.io"
 spec:
   project: "default"
   source:
@@ -13,6 +14,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: r-mordasiewicz
   syncPolicy:
+    preserveResourcesOnDeletion: false
     automated:
       prune: true
       allowEmpty: true
