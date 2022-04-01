@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    chart: jenkins
-    repoURL: 'https://robinmordasiewicz.github.io/jenkins-helm/'
+    chart: robinmordasiewicz/jenkins
+    repoURL: 'https://robinmordasiewicz.github.io/helm-charts'
     targetRevision: 3.11.8
     helm:
       valueFiles:
