@@ -13,7 +13,7 @@ spec:
       valueFiles:
       - values.yaml
   destination:
-    name: in-cluster
+    server: https://kubernetes.default.svc
     namespace: jenkins
   syncPolicy:
     automated:
