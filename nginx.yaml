@@ -11,7 +11,7 @@ spec:
     path: nginx
   destination:
     server: https://kubernetes.default.svc
-    namespace: nginx
+    namespace: r-mordasiewicz
   syncPolicy:
     automated:
       prune: true
