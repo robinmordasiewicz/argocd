@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     chart: jenkins
-    repoURL: 'https://github.com/robinmordasiewicz/argocd.git'
+    repoURL: 'https://robinmordasiewicz.github.io/jenkins-helm/'
     targetRevision: 3.11.8
     helm:
       valueFiles:
