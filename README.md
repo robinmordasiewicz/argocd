@@ -51,3 +51,7 @@ kubectl get applications -n argocd
 ---------------------------
 
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
+
+kubectl describe pod -n r-mordasiewicz jenkins-0
+
+kubectl logs -n r-mordasiewicz jenkins-0 -c jenkins
