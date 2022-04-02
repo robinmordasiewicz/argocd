@@ -1,5 +1,5 @@
 #!/bin/bash
 #
 
-sed -re "s/targetRevision: [0-9]+\.[0-9]+\.[0-9]+-*([0-9]*)/targetRevision: `cat jenkins/VERSION.helmchart`/" jenkins.yaml > jenkins.yaml.tmp && mv jenkins.yaml.tmp jenkins.yaml
+sed -re "s/targetRevision: [0-9]+\.[0-9]+\.[0-9]+-*([0-9]*)/targetRevision: `cat jenkins/VERSION`/" jenkins.yaml > jenkins.yaml.tmp && mv jenkins.yaml.tmp jenkins.yaml
 
