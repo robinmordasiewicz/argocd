@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd-image-updater.argoproj.io/image-list: docker.io/robinhoodis/jenkins:2.332.1-11
+    argocd-image-updater.argoproj.io/image-list: docker.io/robinhoodis/jenkins:2.332.1-14
   name: jenkins
   namespace: argocd
   finalizers:
