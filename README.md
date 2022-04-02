@@ -46,3 +46,8 @@ argocd app set jenkins --sync-policy automated
 argocd app get jenkins
 
 kubectl get applications -n argocd
+
+
+---------------------------
+
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
