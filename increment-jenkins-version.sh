@@ -3,5 +3,6 @@
 
 curl -s https://raw.githubusercontent.com/robinmordasiewicz/helm-charts/main/VERSION.helmchart > jenkins/VERSION
 
-sed -re "s/targetRevision: [0-9]+\.[0-9]+\.[0-9]+-*([0-9]*)/targetRevision: `cat jenkins/VERSION`/" jenkins.yaml > jenkins.yaml.tmp && mv jenkins.yaml.tmp jenkins.yaml
+HELMVERSION=`cat jenkins/VERSION`
 
+cat jenkins.yaml | sed -e "s/targetRevision:.*/targetRevision: ${HELMVERSION}\"/"  > jenkins.yaml.tmp && mv jenkins.yaml.tmp jenkins.yaml
