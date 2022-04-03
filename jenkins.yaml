@@ -9,7 +9,7 @@ spec:
   source:
     chart: jenkins
     repoURL: 'https://robinmordasiewicz.github.io/helm-charts'
-    targetRevision: 3.11.8-95
+    targetRevision: 2.332.1-26
     helm:
       valueFiles:
       - values.yaml
