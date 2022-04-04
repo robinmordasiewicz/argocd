@@ -50,7 +50,7 @@ pipeline {
         }
       }
     }
-    stage('deploy-app') {
+    stage('deploy app') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']) {
           container('ubuntu') {
