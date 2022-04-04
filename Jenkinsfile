@@ -55,6 +55,7 @@ pipeline {
         withKubeConfig([credentialsId: 'kubeconfig']) {
           container('ubuntu') {
             sh 'kubectl apply -f argocd/jenkins.yaml'
+            sh 'kubectl apply -f argocd/nginx.yaml'
           }
         }
       }
