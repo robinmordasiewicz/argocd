@@ -15,36 +15,12 @@ pipeline {
     }
   }
   stages {
-//    stage('increment-version') {
-//      steps {
-//        dir ( 'argocd' ) {
-//          container('ubuntu') {
-//            sh "sh increment-jenkins-version.sh"
-//          }
-//        }
-//      }
-//    }
-//    stage('commit app repo') {
-//      steps {
-//        dir ( 'argocd' ) {
-//          sh 'git config user.email "robin@mordasiewicz.com"'
-//          sh 'git config user.name "Robin Mordasiewicz"'
-//          sh 'git add .'
-//          sh 'git tag `date +"%y.%m.%d.%H.%M"`'
-//          sh 'git commit -m "`date +"%y.%m.%d.%H.%M"`"'
-//          withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
-//            sh '/usr/bin/git push origin main'
-//            sh '/usr/bin/git push origin `date +"%y.%m.%d.%H.%M"`'
-//          }
-//        }
-//      }
-//    }
     stage('deploy app') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']) {
           container('ubuntu') {
-            sh 'kubectl apply -f argocd/jenkins.yaml'
-            sh 'kubectl apply -f argocd/nginx.yaml'
+            sh 'kubectl apply -f jenkins.yaml'
+            sh 'kubectl apply -f nginx.yaml'
           }
         }
       }
