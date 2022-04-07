@@ -34,7 +34,6 @@ argocd app sync nginx
 
 argocd repo add https://charts.jenkins.io --type helm --name jenkinsci
 
-
 argocd app create jenkins --repo https://github.com/robinmordasiewicz/argocd.git --path jenkins --dest-server https://kubernetes.default.svc --dest-namespace r-mordasiewicz --self-heal --sync-policy automated --helm-version v3 --values values.yaml 
 
 argocd app set jenkins --helm-version v3
