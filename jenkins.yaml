@@ -10,7 +10,7 @@ spec:
   source:
     chart: jenkins
     repoURL: 'https://robinmordasiewicz.github.io/helm-charts'
-    targetRevision: "3.11.8-280"
+    targetRevision: "3.11.8-281"
     helm:
       valueFiles:
       - custom-values.yaml
