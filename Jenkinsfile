@@ -28,6 +28,12 @@ pipeline {
       }
     }
     stage('increment argo version') {
+      when {
+        beforeAgent true
+        anyOf {
+          triggeredBy cause: 'UserIdCause'
+        }
+      }
       steps {
         container('ubuntu') {
           sh 'sh increment-version.sh'
