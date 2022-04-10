@@ -21,6 +21,30 @@ pipeline {
     }
   }
   stages {
+    stage('INIT') {
+      steps {
+        cleanWs()
+        checkout scm
+      }
+    }
+    stage('Increment VERSION') {
+      steps {
+        container('ubuntu') {
+          sh 'sh increment-version.sh'
+        }
+      }
+    }
+    stage('commit new VERSION') {
+      steps {
+        sh 'git config user.email "robin@mordasiewicz.com"'
+        sh 'git config user.name "Robin Mordasiewicz"'
+        sh 'git add .'
+        sh 'git diff --quiet && git diff --staged --quiet || git commit -am "`cat VERSION`"'
+        withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
+          sh 'git diff --quiet && git diff --staged --quiet || git push origin main'
+        }
+      }
+    }
     stage('deploy app') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']) {
