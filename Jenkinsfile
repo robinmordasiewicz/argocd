@@ -28,6 +28,12 @@ pipeline {
       }
     }
     stage('increment argo version') {
+      when {
+        beforeAgent true
+        anyOf {
+          triggeredBy cause: 'UserIdCause'
+        }
+      }
       steps {
         container('ubuntu') {
           sh 'sh increment-version.sh'
@@ -47,13 +53,13 @@ pipeline {
         sh 'git config user.email "robin@mordasiewicz.com"'
         sh 'git config user.name "Robin Mordasiewicz"'
         sh 'git add .'
-        sh 'git diff --quiet && git diff --staged --quiet || git tag -a `cat VERSION` -m "`cat VERSION`"'
         sh 'git diff --quiet && git diff --staged --quiet || git commit -m "`cat VERSION`"'
+        sh 'git diff --quiet && git diff --staged --quiet || git tag -a `cat VERSION` -m "`cat VERSION`"'
         withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
           // sh 'git diff --quiet && git diff --staged --quiet || git push origin main'
           // 'git diff --quiet && git diff --staged --quiet || git push --tags'
           sh 'git push origin main'
-          sh 'git push --tags'
+          sh 'git push origin `cat VERSION`'
         }
       }
     }
