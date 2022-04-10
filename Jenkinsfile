@@ -27,10 +27,16 @@ pipeline {
         checkout scm
       }
     }
-    stage('Increment VERSION') {
+    stage('increment argo version') {
       steps {
         container('ubuntu') {
           sh 'sh increment-version.sh'
+        }
+      }
+    }
+    stage('Update Manifests') {
+      steps {
+        container('ubuntu') {
           sh 'sh increment-helm-version.sh'
           sh 'sh increment-nginx-version.sh'
         }
