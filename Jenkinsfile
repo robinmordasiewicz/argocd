@@ -30,6 +30,7 @@ pipeline {
     stage('Increment VERSION') {
       steps {
         container('ubuntu') {
+          sh 'sh increment-version.sh'
           sh 'sh increment-helm-version.sh'
           sh 'sh increment-nginx-version.sh'
         }
@@ -40,9 +41,11 @@ pipeline {
         sh 'git config user.email "robin@mordasiewicz.com"'
         sh 'git config user.name "Robin Mordasiewicz"'
         sh 'git add .'
-        sh 'git diff --quiet && git diff --staged --quiet || git commit -m "`date`"'
+        sh 'git tag -a `cat VERSION`'
+        sh 'git diff --quiet && git diff --staged --quiet || git commit -m "`cat VERSION`"'
         withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
           sh 'git diff --quiet && git diff --staged --quiet || git push origin main'
+          sh 'git push --tags'
         }
       }
     }
