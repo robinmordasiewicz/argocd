@@ -30,7 +30,8 @@ pipeline {
     stage('Increment VERSION') {
       steps {
         container('ubuntu') {
-          sh 'sh increment-version.sh'
+          sh 'sh increment-helm-version.sh'
+          sh 'sh increment-nginx-version.sh'
         }
       }
     }
