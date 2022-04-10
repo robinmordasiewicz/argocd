@@ -48,7 +48,8 @@ pipeline {
         sh 'git config user.name "Robin Mordasiewicz"'
         sh 'git add .'
         sh 'git diff --quiet && git diff --staged --quiet || git commit -m "`cat VERSION`"'
-        sh 'git diff --quiet && git diff --staged --quiet || git tag -a `cat VERSION` -m "`cat VERSION`"'
+        // sh 'git diff --quiet && git diff --staged --quiet || git tag -a `cat VERSION` -m "`cat VERSION`"'
+        sh 'git tag -a `cat VERSION` -m "`cat VERSION`" || echo "Version `tag VERSION` already exists"'
         withCredentials([gitUsernamePassword(credentialsId: 'github-pat', gitToolName: 'git')]) {
           // sh 'git diff --quiet && git diff --staged --quiet || git push origin main'
           // 'git diff --quiet && git diff --staged --quiet || git push --tags'
