@@ -3,7 +3,7 @@ pipeline {
     disableConcurrentBuilds()
   }
   triggers {
-    upstream(upstreamProjects: "nginx,jenkins", threshold: hudson.model.Result.SUCCESS)
+    upstream(upstreamProjects: "nginx,helm-charts", threshold: hudson.model.Result.SUCCESS)
   }
   agent {
     kubernetes {
