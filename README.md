@@ -1,5 +1,7 @@
 # argocd
 
+kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=<username> --docker-password='<password>' --docker-email='<email>' --namespace <namespace>
+
 https://github.com/argoproj/argo-cd/blob/master/docs/getting_started.md
 
 https://www.youtube.com/watch?v=MeU5_k9ssrs
