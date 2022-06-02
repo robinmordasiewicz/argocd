@@ -9,7 +9,7 @@ spec:
   project: "default"
   source:
     repoURL: https://github.com/robinmordasiewicz/argocd.git
-    targetRevision: 1.33.9
+    targetRevision: 1.34.0
     path: nginx
   destination:
     server: https://kubernetes.default.svc
