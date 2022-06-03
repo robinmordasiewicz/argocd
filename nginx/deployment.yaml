@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: robinhoodis/nginx:0.38.8
+          image: robinhoodis/nginx:0.38.9
           ports:
             - name: http
               containerPort: 80
