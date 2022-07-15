@@ -22,6 +22,8 @@ kubectl get pods,svc -n argocd -o wide
 
 argocd login 100.127.193.34
 
+argocd login --core
+
 argocd cluster add r-mordasiewicz-appstack-site
 
 argocd app create nginx --repo https://github.com/robinmordasiewicz/argocd.git --path nginx --dest-server https://kubernetes.default.svc --dest-namespace r-mordasiewicz --self-heal --sync-policy automated
