@@ -62,4 +62,7 @@ kubectl logs -n r-mordasiewicz jenkins-0 -c jenkins
 kubectl get pods -n r-mordasiewicz
 kubectl describe pod nginx-56d9bf85b4-xtwjc -n r-mordasiewicz
 
-
+----- CLEAN UP
+kubectl delete namespace r-mordasiewicz --wait=false
+kubectl delete -f nginx.yaml
+kubectl delete -f jenkins.yaml
